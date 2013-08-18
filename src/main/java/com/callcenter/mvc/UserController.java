@@ -17,13 +17,17 @@ import java.util.List;
 public class UserController {
 
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public List<User> findAll() {
+    public @ResponseBody List<User> findAll() {
         return null;
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET,produces = "application/json")
     public @ResponseBody User findUser(@PathVariable final Long id) {
-        return null;
+        final User user = new User();
+        user.setLogin("blee");
+        user.setName("Lee");
+        user.setPassword("!@#$%^&*^%");
+        return user;
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
