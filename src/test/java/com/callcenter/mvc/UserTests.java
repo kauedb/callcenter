@@ -26,7 +26,7 @@ public class UserTests extends AppTests {
 
     @Test
     public void addLee() throws Exception {
-        mockMvc.perform(post("/user").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(put("/user").contentType(MediaType.APPLICATION_JSON)
                 .content("{\n" +
                         "    \"name\": \"Lee\"\n" +
                         "    ,\"login\": \"blee\"\n" +
@@ -37,7 +37,7 @@ public class UserTests extends AppTests {
 
     @Test
     public void updateLee() throws Exception {
-        mockMvc.perform(put("/user").contentType(MediaType.APPLICATION_JSON)
+        mockMvc.perform(post("/user").contentType(MediaType.APPLICATION_JSON)
                 .content("{\n" +
                         "    \"name\": \"Bruce Lee\"\n" +
                         "    ,\"login\": \"bruce.lee\"\n" +

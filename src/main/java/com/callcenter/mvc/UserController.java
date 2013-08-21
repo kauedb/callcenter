@@ -30,12 +30,12 @@ public class UserController {
         return user;
     }
 
-    @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
+    @RequestMapping(method = RequestMethod.PUT, consumes = "application/json")
     public void addUser(@RequestBody final User user) {
 
     }
 
-    @RequestMapping(method = RequestMethod.PUT, consumes = "application/json")
+    @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
     public void updateUser(@RequestBody final User user) {
 
     }
