@@ -3,7 +3,7 @@ package com.callcenter.service;
 import com.callcenter.domain.User;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 
 /**
  * callcenter
@@ -14,24 +14,30 @@ import java.util.List;
 @Service
 public class UserService {
 
+    private static final NavigableMap<Long, User> users = new TreeMap<Long, User>();
+    static {
+        final User user = new User();
+        user.setLogin("blee");
+        user.setPassword("!@#$%^&*^%");
+        users.put(1L, user);
+    }
+
 
     public List<User> findAll() {
-        return null;  //To change body of created methods use File | Settings | File Templates.
+        return Arrays.asList(users.values().toArray(new User[users.values().size()]));
     }
 
     public User findUser(Long id) {
-        final User user = new User();
-        user.setLogin("blee");
-        user.setName("Lee");
-        user.setPassword("!@#$%^&*^%");
-        return user;
+        return users.get(id);
     }
 
-    public void save(User user) {
-
+    public Long save(User user) {
+        final Long id = users.lastEntry().getKey() + 1L;
+        users.put(id, user);
+        return id;
     }
 
     public void remove(Long id) {
-
+        users.remove(id);
     }
 }

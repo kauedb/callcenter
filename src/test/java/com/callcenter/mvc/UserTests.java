@@ -19,7 +19,6 @@ public class UserTests extends AppTests {
         mockMvc.perform(get("/user/1").accept(MediaType.parseMediaType("application/json")))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType("application/json"))
-                .andExpect(jsonPath("$.name").value("Lee"))
                 .andExpect(jsonPath("$.login").value("blee"))
                 .andExpect(jsonPath("$.password").value("!@#$%^&*^%"));
     }
@@ -27,9 +26,7 @@ public class UserTests extends AppTests {
     @Test
     public void addLee() throws Exception {
         mockMvc.perform(put("/user").contentType(MediaType.APPLICATION_JSON)
-                .content("{\n" +
-                        "    \"name\": \"Lee\"\n" +
-                        "    ,\"login\": \"blee\"\n" +
+                .content("{\n \"login\": \"blee\"\n" +
                         "    , \"password\": \"!@#$%^&*^%\"\n" +
                         "}"))
                 .andExpect(status().isOk());
@@ -38,9 +35,7 @@ public class UserTests extends AppTests {
     @Test
     public void updateLee() throws Exception {
         mockMvc.perform(post("/user").contentType(MediaType.APPLICATION_JSON)
-                .content("{\n" +
-                        "    \"name\": \"Bruce Lee\"\n" +
-                        "    ,\"login\": \"bruce.lee\"\n" +
+                .content("{\n \"login\": \"bruce.lee\"\n" +
                         "    , \"password\": \"!@#$%^&*^%\"\n" +
                         "}"))
                 .andExpect(status().isOk());

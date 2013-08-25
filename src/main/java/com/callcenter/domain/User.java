@@ -8,17 +8,8 @@ package com.callcenter.domain;
  */
 public class User {
 
-    private String name;
     private String login;
     private String password;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getLogin() {
         return login;
@@ -38,6 +29,10 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("User{name='%s', login='%s', password='%s'} %s", name, login, password, super.toString());
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("login='").append(login).append('\'');
+        sb.append(", password='").append(password).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }
