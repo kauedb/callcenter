@@ -2,7 +2,7 @@ package com.callcenter.domain;
 
 /**
  * callcenter
- * User: Kauê Q. Carbonari
+ * UserBean: Kauê Q. Carbonari
  * Date: 8/24/13
  * Time: 11:24 AM
  */

@@ -8,11 +8,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 /**
  * callcenter
- * User: Kauê Q. Carbonari
+ * UserBean: Kauê Q. Carbonari
  * Date: 8/18/13
  * Time: 12:08 PM
  */
-public class UserTests extends AppTests {
+public class UserControllerTests extends AppTests {
 
     @Test
     public void findLee() throws Exception {

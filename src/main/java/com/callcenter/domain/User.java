@@ -1,14 +1,27 @@
 package com.callcenter.domain;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
 /**
  * callcenter
- * User: Kauê Q. Carbonari
+ * UserBean: Kauê Q. Carbonari
  * Date: 8/17/13
  * Time: 11:48 PM
  */
-public class User {
+@Entity
+@Table(name="tb_user")
+public class User implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_user")
+    private Long id;
+
+    @Column(name = "des_login")
     private String login;
+
+    @Column(name = "des_password")
     private String password;
 
     public String getLogin() {
@@ -29,7 +42,7 @@ public class User {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("User{");
+        final StringBuilder sb = new StringBuilder("UserBean{");
         sb.append("login='").append(login).append('\'');
         sb.append(", password='").append(password).append('\'');
         sb.append('}');
